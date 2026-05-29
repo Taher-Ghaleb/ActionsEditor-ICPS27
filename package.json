@@ -1,0 +1,28 @@
+{
+  "name": "github-actions-editor",
+  "version": "1.0.0",
+  "description": "Visual GitHub Actions workflow editor",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "backend": "python3 backend/server.py",
+    "dev": "vite",
+    "dev:full": "node scripts/dev.mjs",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node --test tests/*.test.mjs",
+    "test:backend": "cd backend && python3 -m unittest test_server -v"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.1",
+    "vite": "^5.0.8"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

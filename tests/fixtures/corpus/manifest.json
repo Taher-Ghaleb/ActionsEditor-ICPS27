@@ -1,0 +1,100 @@
+{
+  "description": "Real-world GitHub Actions workflow corpus for Week 2 evaluation (linter accuracy, round-trip fidelity, field coverage). Sourced live from two active open-source repos via their raw.githubusercontent.com files at the commit noted below.",
+  "generated": "2026-09-11",
+  "sources": [
+    {
+      "repo": "checkstyle/checkstyle",
+      "url": "https://github.com/checkstyle/checkstyle/tree/master/.github/workflows",
+      "ref": "master",
+      "note": "35 workflow files in .github/workflows at time of fetch; 6 selected for diversity"
+    },
+    {
+      "repo": "pytorch/pytorch",
+      "url": "https://github.com/pytorch/pytorch/tree/main/.github/workflows",
+      "ref": "main",
+      "note": "145 workflow files in .github/workflows at time of fetch (one of the largest, most complex GHA setups on GitHub); 4 selected for diversity. A 5th file (trunk.yml) was attempted but skipped: it exceeded a safe single-fetch size in this session's tooling and risked a truncated/corrupted fixture, so it was left out rather than saved incomplete."
+    }
+  ],
+  "files": [
+    {
+      "file": "checkstyle__checkstyle__actionlint.yml",
+      "source_repo": "checkstyle/checkstyle",
+      "source_path": ".github/workflows/actionlint.yml",
+      "source_url": "https://raw.githubusercontent.com/checkstyle/checkstyle/master/.github/workflows/actionlint.yml",
+      "category": "baseline/simple",
+      "notes": "single job, push+pull_request triggers, concurrency group, docker:// action"
+    },
+    {
+      "file": "checkstyle__checkstyle__codeql-analysis.yml",
+      "source_repo": "checkstyle/checkstyle",
+      "source_path": ".github/workflows/codeql-analysis.yml",
+      "source_url": "https://raw.githubusercontent.com/checkstyle/checkstyle/master/.github/workflows/codeql-analysis.yml",
+      "category": "security / matrix",
+      "notes": "permissions (map form), strategy.matrix, schedule trigger, multi-line config block inside a `with:` value"
+    },
+    {
+      "file": "checkstyle__checkstyle__release-maven-perform.yml",
+      "source_repo": "checkstyle/checkstyle",
+      "source_path": ".github/workflows/release-maven-perform.yml",
+      "source_url": "https://raw.githubusercontent.com/checkstyle/checkstyle/master/.github/workflows/release-maven-perform.yml",
+      "category": "reusable workflow definition",
+      "notes": "on.workflow_call with typed inputs, run-name, multiple secrets.* references"
+    },
+    {
+      "file": "checkstyle__checkstyle__check-pr-description.yml",
+      "source_repo": "checkstyle/checkstyle",
+      "source_path": ".github/workflows/check-pr-description.yml",
+      "source_url": "https://raw.githubusercontent.com/checkstyle/checkstyle/master/.github/workflows/check-pr-description.yml",
+      "category": "baseline/simple",
+      "notes": "single job, secrets.GITHUB_TOKEN in env, ubuntu-24.04 runner label"
+    },
+    {
+      "file": "checkstyle__checkstyle__qodana.yml",
+      "source_repo": "checkstyle/checkstyle",
+      "source_path": ".github/workflows/qodana.yml",
+      "source_url": "https://raw.githubusercontent.com/checkstyle/checkstyle/master/.github/workflows/qodana.yml",
+      "category": "security / permissions",
+      "notes": "job-level permissions map including an explicit 'none' value (pull-requests: none)"
+    },
+    {
+      "file": "checkstyle__checkstyle__site.yml",
+      "source_repo": "checkstyle/checkstyle",
+      "source_path": ".github/workflows/site.yml",
+      "source_url": "https://raw.githubusercontent.com/checkstyle/checkstyle/master/.github/workflows/site.yml",
+      "category": "multi-job / needs chain",
+      "notes": "3 jobs chained via needs, job outputs, workflow-level env with multi-line >- expressions, multi-line concurrency.group expression, permissions map"
+    },
+    {
+      "file": "pytorch__pytorch__lint.yml",
+      "source_repo": "pytorch/pytorch",
+      "source_path": ".github/workflows/lint.yml",
+      "source_url": "https://raw.githubusercontent.com/pytorch/pytorch/main/.github/workflows/lint.yml",
+      "category": "reusable workflow caller / multi-job",
+      "notes": "permissions as a bare string ('read-all'), many jobs calling both local (./.github/workflows/_lint.yml) and cross-repo (pytorch/pytorch/.github/workflows/_runner-determinator.yml@main) reusable workflows with `with:` inputs, matrix with `include:`, needs chains"
+    },
+    {
+      "file": "pytorch__pytorch___linux-build.yml",
+      "source_repo": "pytorch/pytorch",
+      "source_path": ".github/workflows/_linux-build.yml",
+      "source_url": "https://raw.githubusercontent.com/pytorch/pytorch/main/.github/workflows/_linux-build.yml",
+      "category": "reusable workflow definition",
+      "notes": "on.workflow_call with ~25 typed inputs (string/boolean/number, required/optional/default), secrets block, outputs block referencing jobs.build.outputs.*, job-level permissions, container.image"
+    },
+    {
+      "file": "pytorch__pytorch__stale.yml",
+      "source_repo": "pytorch/pytorch",
+      "source_path": ".github/workflows/stale.yml",
+      "source_url": "https://raw.githubusercontent.com/pytorch/pytorch/main/.github/workflows/stale.yml",
+      "category": "scheduled / permissions",
+      "notes": "schedule (cron) + workflow_dispatch triggers, job-level permissions map, single large actions/github-script step with an embedded multi-hundred-line JS script"
+    },
+    {
+      "file": "pytorch__pytorch__scorecards.yml",
+      "source_repo": "pytorch/pytorch",
+      "source_path": ".github/workflows/scorecards.yml",
+      "source_url": "https://raw.githubusercontent.com/pytorch/pytorch/main/.github/workflows/scorecards.yml",
+      "category": "security",
+      "notes": "workflow-level permissions as a bare string ('read-all') AND job-level permissions as a map in the same file, branch_protection_rule trigger, schedule+push+workflow_dispatch"
+    }
+  ]
+}

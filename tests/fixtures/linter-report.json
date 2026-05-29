@@ -1,0 +1,259 @@
+{
+  "generated": "2026-10-21T17:52:04.592Z",
+  "corpusSize": 10,
+  "totals": {
+    "issues": 13,
+    "errors": 0,
+    "warnings": 13,
+    "parseFailures": 0
+  },
+  "issuesByCategory": {
+    "YAML-level": {
+      "errors": 0,
+      "warnings": 0,
+      "total": 0,
+      "files": 0
+    },
+    "Trigger": {
+      "errors": 0,
+      "warnings": 0,
+      "total": 0,
+      "files": 0
+    },
+    "Job structure": {
+      "errors": 0,
+      "warnings": 0,
+      "total": 0,
+      "files": 0
+    },
+    "Dependency graph": {
+      "errors": 0,
+      "warnings": 0,
+      "total": 0,
+      "files": 0
+    },
+    "Step": {
+      "errors": 0,
+      "warnings": 1,
+      "total": 1,
+      "files": 1
+    },
+    "Conditional expression": {
+      "errors": 0,
+      "warnings": 0,
+      "total": 0,
+      "files": 0
+    },
+    "Security": {
+      "errors": 0,
+      "warnings": 10,
+      "total": 10,
+      "files": 3
+    },
+    "Hardcoded credential": {
+      "errors": 0,
+      "warnings": 0,
+      "total": 0,
+      "files": 0
+    },
+    "Glob pattern": {
+      "errors": 0,
+      "warnings": 0,
+      "total": 0,
+      "files": 0
+    },
+    "Runner label": {
+      "errors": 0,
+      "warnings": 2,
+      "total": 2,
+      "files": 1
+    }
+  },
+  "issueFrequencyByMessage": {
+    "Step \"Checkout PyTorch\" is pinned to": 3,
+    "Step \"Check workflow files\" uses \"docker://rhysd/actionlint:latest\"": 1,
+    "Job \"pr-sanity-checks\" uses runner label \"linux.24_04.4x\",": 1,
+    "Job \"doc-redirects-check\" uses runner label \"linux.24_04.4x\",": 1,
+    "Step \"Setup Linux\" is pinned to": 1,
+    "Step \"Check if can use old": 1,
+    "Step \"Select all requested test configurations": 1,
+    "Step \"Build external packages\" is pinned": 1,
+    "Step \"Store build artifacts\" is pinned": 1,
+    "Step \"Upload sccache stats\" is pinned": 1,
+    "A step in job \"stale\" has": 1
+  },
+  "files": [
+    {
+      "file": "checkstyle__checkstyle__actionlint.yml",
+      "parseError": null,
+      "lintCrashed": null,
+      "issueCount": 1,
+      "errorCount": 0,
+      "warningCount": 1,
+      "issues": [
+        {
+          "type": "warning",
+          "category": "Security",
+          "line": 28,
+          "msg": "Step \"Check workflow files\" uses \"docker://rhysd/actionlint:latest\" without a version pin. Pin to a version tag (e.g. @v4) for reproducibility."
+        }
+      ]
+    },
+    {
+      "file": "checkstyle__checkstyle__codeql-analysis.yml",
+      "parseError": null,
+      "lintCrashed": null,
+      "issueCount": 0,
+      "errorCount": 0,
+      "warningCount": 0,
+      "issues": []
+    },
+    {
+      "file": "checkstyle__checkstyle__release-maven-perform.yml",
+      "parseError": null,
+      "lintCrashed": null,
+      "issueCount": 0,
+      "errorCount": 0,
+      "warningCount": 0,
+      "issues": []
+    },
+    {
+      "file": "checkstyle__checkstyle__check-pr-description.yml",
+      "parseError": null,
+      "lintCrashed": null,
+      "issueCount": 0,
+      "errorCount": 0,
+      "warningCount": 0,
+      "issues": []
+    },
+    {
+      "file": "checkstyle__checkstyle__qodana.yml",
+      "parseError": null,
+      "lintCrashed": null,
+      "issueCount": 0,
+      "errorCount": 0,
+      "warningCount": 0,
+      "issues": []
+    },
+    {
+      "file": "checkstyle__checkstyle__site.yml",
+      "parseError": null,
+      "lintCrashed": null,
+      "issueCount": 0,
+      "errorCount": 0,
+      "warningCount": 0,
+      "issues": []
+    },
+    {
+      "file": "pytorch__pytorch__lint.yml",
+      "parseError": null,
+      "lintCrashed": null,
+      "issueCount": 5,
+      "errorCount": 0,
+      "warningCount": 5,
+      "issues": [
+        {
+          "type": "warning",
+          "category": "Runner label",
+          "line": 146,
+          "msg": "Job \"pr-sanity-checks\" uses runner label \"linux.24_04.4x\", which is not a recognized GitHub-hosted runner. If this is a self-hosted runner, include the \"self-hosted\" label; otherwise check for a typo."
+        },
+        {
+          "type": "warning",
+          "category": "Security",
+          "line": 151,
+          "msg": "Step \"Checkout PyTorch\" is pinned to a mutable Git ref (main). For security, pin to a version tag or commit SHA."
+        },
+        {
+          "type": "warning",
+          "category": "Security",
+          "line": 257,
+          "msg": "Step \"Checkout PyTorch\" is pinned to a mutable Git ref (main). For security, pin to a version tag or commit SHA."
+        },
+        {
+          "type": "warning",
+          "category": "Runner label",
+          "line": 313,
+          "msg": "Job \"doc-redirects-check\" uses runner label \"linux.24_04.4x\", which is not a recognized GitHub-hosted runner. If this is a self-hosted runner, include the \"self-hosted\" label; otherwise check for a typo."
+        },
+        {
+          "type": "warning",
+          "category": "Security",
+          "line": 317,
+          "msg": "Step \"Checkout PyTorch\" is pinned to a mutable Git ref (main). For security, pin to a version tag or commit SHA."
+        }
+      ]
+    },
+    {
+      "file": "pytorch__pytorch___linux-build.yml",
+      "parseError": null,
+      "lintCrashed": null,
+      "issueCount": 6,
+      "errorCount": 0,
+      "warningCount": 6,
+      "issues": [
+        {
+          "type": "warning",
+          "category": "Security",
+          "line": 176,
+          "msg": "Step \"Setup Linux\" is pinned to a mutable Git ref (main). For security, pin to a version tag or commit SHA."
+        },
+        {
+          "type": "warning",
+          "category": "Security",
+          "line": 186,
+          "msg": "Step \"Check if can use old whl build\" is pinned to a mutable Git ref (main). For security, pin to a version tag or commit SHA."
+        },
+        {
+          "type": "warning",
+          "category": "Security",
+          "line": 198,
+          "msg": "Step \"Select all requested test configurations (if the test matrix is available)\" is pinned to a mutable Git ref (main). For security, pin to a version tag or commit SHA."
+        },
+        {
+          "type": "warning",
+          "category": "Security",
+          "line": 261,
+          "msg": "Step \"Build external packages\" is pinned to a mutable Git ref (main). For security, pin to a version tag or commit SHA."
+        },
+        {
+          "type": "warning",
+          "category": "Security",
+          "line": 285,
+          "msg": "Step \"Store build artifacts\" is pinned to a mutable Git ref (main). For security, pin to a version tag or commit SHA."
+        },
+        {
+          "type": "warning",
+          "category": "Security",
+          "line": 293,
+          "msg": "Step \"Upload sccache stats\" is pinned to a mutable Git ref (main). For security, pin to a version tag or commit SHA."
+        }
+      ]
+    },
+    {
+      "file": "pytorch__pytorch__stale.yml",
+      "parseError": null,
+      "lintCrashed": null,
+      "issueCount": 1,
+      "errorCount": 0,
+      "warningCount": 1,
+      "issues": [
+        {
+          "type": "warning",
+          "category": "Step",
+          "line": 31,
+          "msg": "A step in job \"stale\" has no name. Add a descriptive name for clarity."
+        }
+      ]
+    },
+    {
+      "file": "pytorch__pytorch__scorecards.yml",
+      "parseError": null,
+      "lintCrashed": null,
+      "issueCount": 0,
+      "errorCount": 0,
+      "warningCount": 0,
+      "issues": []
+    }
+  ]
+}
